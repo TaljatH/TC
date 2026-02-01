@@ -3,12 +3,12 @@ import { SlideData } from './types';
 export const SLIDES: SlideData[] = [
   {
     id: 1,
-    imageUrl: "./photo.jpg", // Please save your photo as 'photo.jpg' in the project root
+    imageUrl: "/IMG_0395.jpg", 
     text: `Hello Celine,\n\nI want to begin with an apology. I know I have not been putting much work on making you feel like butterflies in the stomach. I'm sorry. I myself wish that I could do more, and I know I would do more if we lived with each other. I would have been taking you out for dinners, surprising you with breakfast, taking care of you... Or just anything to make you happy.\n\nSo I want to start with something I was working with in secret for few days now.\n\nI made a promise that I will love you no matter what. I will keep that promise until I die.`
   },
   {
     id: 2,
-    imageUrl: "https://picsum.photos/id/338/1000/1500", // Soft lighting/texture
+    imageUrl: "/IMG_0804.jpg", 
     title: "(She is lovely)",
     text: `You are cute,
 and your kindness
@@ -27,7 +27,7 @@ and I’m happy.`
   },
   {
     id: 3,
-    imageUrl: "https://picsum.photos/id/1029/1000/1500", // City/Park atmosphere
+    imageUrl: "/IMG_0338.jpg", 
     title: "(Love each other)",
     text: `Perfect love to me
 is when we both feel free,
