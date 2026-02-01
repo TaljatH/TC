@@ -44,26 +44,35 @@ const Slide: React.FC<SlideProps> = ({ data, isActive, onNext, onPrev, isFirst, 
         )}
       </button>
 
-      {/* Image Section - 75vh for portrait photos */}
-      <div className="relative h-[75vh] w-full z-0 shadow-xl shadow-rose-950/20">
+      {/* Image Section - Fits image without cropping */}
+      <div className="relative h-[75vh] w-full z-0 shadow-xl shadow-rose-950/20 overflow-hidden bg-black/20">
+        
+        {/* Blurred Background Layer to fill space nicely */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center blur-2xl opacity-60 scale-110 transition-transform duration-700"
+          style={{ backgroundImage: `url(${data.imageUrl})` }}
+        ></div>
+
+        {/* Gradient Overlay for text readability at bottom */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-[#85203b] z-10 pointer-events-none"></div>
         
-        {/* Heart Decoration on Image instead of Sparkle */}
+        {/* Heart Decoration */}
         <div className="absolute top-8 right-8 z-20 text-rose-200/80 animate-pulse">
           <Heart size={36} fill="currentColor" className="text-rose-100" />
         </div>
         
+        {/* Main Image - Uses object-contain to fit fully inside */}
         <img 
           src={data.imageUrl} 
-          alt="Atmosphere" 
-          className="w-full h-full object-cover object-center opacity-95"
+          alt="Memory" 
+          className="relative z-0 w-full h-full object-contain object-center drop-shadow-2xl"
         />
       </div>
 
       {/* Text Section */}
       <div className="w-full flex flex-col items-center relative z-20 px-6 py-12 md:py-16">
         
-        {/* Floating Hearts Decorations - Just hearts, no stars */}
+        {/* Floating Hearts Decorations */}
         <div className="absolute top-0 right-10 text-rose-300/30 animate-float-slow">
            <Heart size={28} fill="currentColor" />
         </div>
@@ -86,16 +95,16 @@ const Slide: React.FC<SlideProps> = ({ data, isActive, onNext, onPrev, isFirst, 
           )}
           
           <div className="relative w-full">
-            {/* Decorative bracket/line - Brighter color */}
+            {/* Decorative bracket/line */}
             <div className="absolute -left-4 top-0 bottom-0 w-1 rounded-full bg-gradient-to-b from-transparent via-rose-300/60 to-transparent"></div>
             
-            {/* Standard Text - No Typewriter */}
+            {/* Standard Text */}
             <div className="font-body text-xl md:text-2xl text-rose-50 text-center leading-loose w-full pb-8 px-4 drop-shadow-sm whitespace-pre-wrap animate-[fadeIn_1.5s_ease-out_forwards]">
               {data.text}
             </div>
           </div>
           
-          {/* Bottom decorations - Only hearts */}
+          {/* Bottom decorations */}
           <div className="mt-8 opacity-80 flex gap-3">
             <Heart size={22} className="text-rose-200 fill-rose-300 animate-bounce" style={{ animationDelay: '0s' }} />
             <Heart size={28} className="text-rose-200 fill-rose-300 animate-bounce" style={{ animationDelay: '0.2s' }} />
